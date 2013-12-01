@@ -72,18 +72,23 @@ public class Binaria {
 	 }
      
      public void exibirRaiz(){
+    	 if(raiz == null){
+        	 System.out.println("A Arvore está vazia!");
+        	 return;
+         }
+    	 
          System.out.println("Raiz " + raiz.getValor());         
      }
      
      
      public Node remover(Node node, int valor) {  
-         System.out.println("  Percorrendo No " + node.getValor());  
-        
-         if(node == null){  
-             System.out.println("Arvore vazia ");
-             
+    	 if(node == null){
+        	 System.out.println("A Arvore está vazia!");
+        	 return null;
          }
-         
+    	 
+         System.out.println("  Percorrendo No " + node.getValor());  
+       
          if (valor < node.getValor()) {  
              node.setEsquerda(remover(node.getEsquerda(), valor));  
                
@@ -123,25 +128,5 @@ public class Binaria {
          return node;  
      }  
      
-     
-     public  Node pesquisa(Node raiz,int chave) { 
-    	 Node a1; 
-    	 
-    	 if (raiz == null) { 
-    		 return(null); 
-    	 }else { 
-	    	 if (raiz.getValor() == chave) {                   // busca na raiz 
-	    		 return(raiz); 
-	    	 }else { 
-		    	 a1 = pesquisa(raiz.getEsquerda(), chave);    // busca na sub-árvore esquerda 
-		    	 if (a1 == null) { 
-		    		 a1 = pesquisa(raiz.getDireita(), chave); // busca na sub-árvore direita 
-		    	 } 
-	    	 } 
-	    	 return(a1); 
-    	 } 
-     } 
-
-		 
-	
+    
 }
